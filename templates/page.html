@@ -4,15 +4,15 @@
 
 {% block header %}
 <header class="space">
-    <a href="{{ config.base_url }}">&LeftArrow; Home</a>
+    <a class="button" href="{{ config.base_url }}">&LeftArrow; Home</a>
 </header>
 {% endblock header %}
 
 {% block content %}
 <main>
-    <h1>{{ page.title }}</h1>
+    <h1 style="margin-bottom: -10px;">{{ page.title }}</h1>
     {% if page.date %}
-    <p class="secondary">{{ page.date | date(format="%-d %B, %Y") }}</p>
+    <p class="secondary" style="font-style: italic;">{{ page.date | date(format="%-d %B, %Y") }}</p>
     {% endif %}
     <div class="space"></div>
     {{ page.content | safe }}

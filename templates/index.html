@@ -11,15 +11,16 @@
 <body>
     {% block header %}
     <header class="space">
-        <h1>{{ config.title }}</h1>
+        <img src="{{ get_url(path='untitled.svg') }}" width="240" alt="{{ config.title }}" aria-hidden="true" role="presentation" class="invertible"></img>
+        <div class="space-small"></div>
         {% set linked_pages = section.pages | filter(attribute="extra.in_header") %}
         {% if config.extra.links or linked_pages %}
-        <nav class="header-links">
+        <nav class="header-links bg rounded shadowed">
             {% for link in config.extra.links %}
-            <a href="{{ link.href }}">{{ link.title }}</a>
+            <a class="button" href="{{ link.href }}">{{ link.title }}</a>
             {% endfor %}
             {% for page in linked_pages %}
-            <a href="{{ page.permalink }}">{{ page.title }}</a>
+            <a class="button" href="{{ page.permalink }}">{{ page.title }}</a>
             {% endfor %}
         </nav>
         {% endif %}
@@ -36,11 +37,15 @@
         {% endif %}
         {% if blog.pages %}
         <h2>Recent posts</h2>
-        <ul>
+        <div>
             {% for post in blog.pages | slice(end=20) %}
-            <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+            <div class="rounded shadowed bg-code border">
+               <a href="{{ post.permalink }}"> <h3>{{ post.title }}</h3></a>
+               <h5>{{post.date}}</h5>
+            </div>
+            <div class="space-small"></div>
             {% endfor %}
-        </ul>
+        </div>
         <p><a href="{{ blog.permalink }}">Archive</a></p>
         {% endif %}
     </main>

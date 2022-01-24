@@ -1,18 +1,22 @@
 $foreground: #222222;
 $background: #eeeeee;
-$secondary: gray;
-$tertiary: #dddddd;
-$accent: #5353ff;
+$secondary: rgb(77, 77, 77);
+$tertiary: #e4e4e4;
+$accent: #245cc4;
 
-$foreground-dark: #eeeeee;
-$background-dark: #161616;
-$secondary-dark: #999999;
-$tertiary-dark: #444444;
+$foreground-dark: #e1e4dc;
+$background-dark: #25292e;
+$secondary-dark: #808fa0;
+//$tertiary-dark: #2B303B;
+$tertiary-dark: #2B303B;
 $accent-dark: $accent;
+
+$code: #2B303B;
+
 
 @mixin light-theme {
     color: $foreground;
-    background-color: $background;
+    background-color: darken($background, 5%);;
 
     .secondary {
         color: $secondary;
@@ -23,7 +27,7 @@ $accent-dark: $accent;
     }
 
     a:hover {
-        color: darken($accent, 30%);
+        color: lighten($accent, 10%);
     }
 
     blockquote {
@@ -38,14 +42,58 @@ $accent-dark: $accent;
         background-color: transparent;
     }
 
+    main {
+        background-color: $background;
+    }
+
     .footnote-definition sup {
         color: $secondary;
     }
+
+    .card {
+        background-color: #202428;
+        border-color: #245cc4;
+    }
+
+    .border {
+        border-color: $accent;
+    }
+
+    .bg-accent {
+        background-color: $accent;
+        color: $foreground;
+    }
+
+    .bg-tertiary {
+        background-color: $tertiary;
+        color: $foreground;
+    }
+
+    .bg-code {
+        background-color: $tertiary;
+        color: $foreground;
+    }
+
+    .bg {
+        background-color: $background;
+    }
+
+    .button:hover {
+        background-color: $tertiary;
+  }
+
+  .invertible{
+    filter: invert(0%);
+  }
 }
 
 @mixin dark-theme {
     color: $foreground-dark;
-    background-color: $background-dark;
+    background-color: darken($background-dark, 5%);
+
+    .invertible{
+        filter: invert(100%);
+    }
 
     .secondary {
         color: $secondary-dark;
@@ -71,9 +119,48 @@ $accent-dark: $accent;
         background-color: transparent;
     }
 
+    main {
+        background-color: $background-dark;
+    }
+
     .footnote-definition sup {
         color: $secondary-dark;
     }
+
+    .card {
+        background-color: #202428;
+        border-color: #245cc4;
+    }
+
+    .border {
+        border-color: $accent-dark;
+    }
+
+    .bg-accent {
+        background-color: $accent-dark;
+        color: $foreground-dark;
+    }
+
+    .bg-tertiary {
+        background-color: $tertiary-dark;
+        color: $foreground-dark;
+    }
+
+    .bg-code {
+        background-color: $code;
+        color: $foreground-dark;
+    }
+
+    .bg {
+        background-color: $background-dark;
+    }
+
+    .button:hover {
+        background-color: $tertiary-dark;
+  }
+
+
+  
 }
 
 @media (prefers-color-scheme: light) {
