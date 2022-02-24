@@ -19,7 +19,15 @@ $code: #2B303B;
     background-color: darken($background, 5%);;
 
     .secondary {
-        color: $secondary;
+        color: $secondary !important;
+    }
+
+    .primary {
+        color: $foreground !important;
+    }
+
+    .accent {
+        color: $accent !important;
     }
 
     a, a:link, a:visited {
@@ -96,7 +104,15 @@ $code: #2B303B;
     }
 
     .secondary {
-        color: $secondary-dark;
+        color: $secondary-dark !important;
+    }
+
+    .primary {
+        color: $foreground-dark !important;
+    }
+
+    .accent {
+        color: $accent-dark !important;
     }
 
     a, a:link, a:visited {
@@ -127,11 +143,6 @@ $code: #2B303B;
         color: $secondary-dark;
     }
 
-    .card {
-        background-color: #202428;
-        border-color: #245cc4;
-    }
-
     .border {
         border-color: $accent-dark;
     }
@@ -155,7 +166,13 @@ $code: #2B303B;
         background-color: $background-dark;
     }
 
+    .button {
+        color: white;
+        //border-color: $accent-dark;
+    }
+
     .button:hover {
+        color: $foreground-dark;
         background-color: $tertiary-dark;
   }
 
